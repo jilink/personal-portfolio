@@ -1,15 +1,24 @@
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
-import { IconButton, useColorMode, useColorModeValue } from "@chakra-ui/react"
+import {
+  Button,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+  useMediaQuery,
+} from "@chakra-ui/react"
 import React from "react"
 export default function ThemeToggle() {
   const { toggleColorMode: toggleMode } = useColorMode()
-  const ToggleIcon = useColorModeValue(SunIcon, MoonIcon)
+  const ToggleIcon = useColorModeValue(MoonIcon, SunIcon)
+
   return (
-    <IconButton
-      icon={<ToggleIcon />}
+    <Button
+      rightIcon={<ToggleIcon />}
       variant="ghost"
       aria-label="Toggle Theme"
       onClick={toggleMode}
-    />
+    >
+      Thème
+    </Button>
   )
 }
