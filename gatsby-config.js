@@ -6,7 +6,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `@chakra-ui/gatsby-plugin`,
+    {
+      resolve: `@chakra-ui/gatsby-plugin`,
+      options: {
+        isUsingColorMode: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
