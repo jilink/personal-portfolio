@@ -2,7 +2,14 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Link as ReachLink } from "gatsby"
 
-import { Flex, Stack, Box, Text, Link, useColorMode } from "@chakra-ui/react"
+import {
+  Flex,
+  Stack,
+  Box,
+  Text,
+  Link,
+  useColorModeValue,
+} from "@chakra-ui/react"
 import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 
 import ThemeToggle from "./toggle-theme"
@@ -39,7 +46,7 @@ const MenuLinks = ({ isOpen }) => (
       pt={[4, 4, 0, 0]}
     >
       <LinkItem to="/">Contacter</LinkItem>
-      <LinkItem to="/">Services</LinkItem>
+      <LinkItem to="/">Services/Tarifs</LinkItem>
       <LinkItem to="/">Compétences</LinkItem>
       <LinkItem to="/">Projets</LinkItem>
       <ThemeToggle />
@@ -67,10 +74,10 @@ const NavBarContainer = ({ children, ...props }) => {
 const Header = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggle = () => setIsOpen(!isOpen)
-  const { colorMode } = useColorMode()
+  const bg = useColorModeValue("cyan.100", "cyan.900")
   return (
     <header>
-      <NavBarContainer bg={colorMode === "light" ? "teal" : "#310A31"}>
+      <NavBarContainer bg={bg}>
         <Logo w="100px" siteTitle={siteTitle} />
         <MenuToggle toggle={toggle} isOpen={isOpen} />
         <MenuLinks isOpen={isOpen} />
