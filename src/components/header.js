@@ -9,11 +9,12 @@ import {
   Text,
   Link,
   useColorModeValue,
+  LinkBox,
 } from "@chakra-ui/react"
 import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 
 import ThemeToggle from "./toggle-theme"
-import Logo from "./images/Logo"
+import Logo from "./images/logo"
 
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
@@ -45,7 +46,7 @@ const MenuLinks = ({ isOpen }) => (
       direction={["column", "row", "row", "row"]}
       pt={[4, 4, 0, 0]}
     >
-      <LinkItem to="/">Contacter</LinkItem>
+      <LinkItem to="#contact">Contacter</LinkItem>
       <LinkItem to="/">Services/Tarifs</LinkItem>
       <LinkItem to="/">Compétences</LinkItem>
       <LinkItem to="/">Projets</LinkItem>
@@ -78,7 +79,9 @@ const Header = ({ siteTitle }) => {
   return (
     <header>
       <NavBarContainer bg={bg}>
-        <Logo w="100px" siteTitle={siteTitle} />
+        <LinkBox as={ReachLink} to="/">
+          <Logo w="100px" siteTitle={siteTitle} />
+        </LinkBox>
         <MenuToggle toggle={toggle} isOpen={isOpen} />
         <MenuLinks isOpen={isOpen} />
       </NavBarContainer>
