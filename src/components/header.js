@@ -11,7 +11,7 @@ import {
   useColorModeValue,
   LinkBox,
 } from "@chakra-ui/react"
-import { ChevronDownIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 
 import ThemeToggle from "./toggle-theme"
 import Logo from "./images/logo"
