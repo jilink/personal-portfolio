@@ -1,22 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { useColorModeValue } from "@chakra-ui/react"
 
-const Logo = () => {
-  const light = useColorModeValue(true, false)
+const Logo = ({...props}) => {
   const data = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "logo.png" }) {
+      logo: file(relativePath: { eq: "mylogo.png" }) {
         childImageSharp {
-          fixed(width: 100) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      logoLight: file(relativePath: { eq: "logo-light.png" }) {
-        childImageSharp {
-          fixed(width: 100) {
+          fixed(width: 80) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -24,10 +15,8 @@ const Logo = () => {
     }
   `)
 
-  if (light && data?.logo?.childImageSharp?.fixed) {
-    return <Img fadeIn={false} fixed={data.logoLight.childImageSharp.fixed} />
-  } else if (data?.logo?.childImageSharp?.fixed) {
-    return <Img fadeIn={false} fixed={data.logo.childImageSharp.fixed} />
+  if (data?.logo?.childImageSharp?.fixed) {
+    return <Img loading="eager" fadeIn={true} fixed={data.logo.childImageSharp.fixed} {...props}/>
   }
   return <div>Picture not found</div>
 }

@@ -8,7 +8,7 @@ import {
   Box,
   Text,
   Link,
-  useColorModeValue,
+  Center,
   LinkBox,
 } from "@chakra-ui/react"
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
@@ -26,7 +26,7 @@ const MenuToggle = ({ toggle, isOpen }) => {
 
 const LinkItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
-    <Link as={ReachLink} to={to} style={{ boxShadow: "none" }}>
+    <Link as={ReachLink} to={to} style={{ boxShadow: "none" }} _hover={{ textDecoration: "none", color:"secondary"}}>
       <Text display="block" {...rest}>
         {children}
       </Text>
@@ -38,6 +38,7 @@ const MenuLinks = ({ isOpen }) => (
   <Box
     display={{ base: isOpen ? "block" : "none", md: "block" }}
     flexBasis={{ base: "100%", md: "auto" }}
+    fontWeight="semibold"
   >
     <Stack
       spacing={8}
@@ -59,11 +60,12 @@ const NavBarContainer = ({ children, ...props }) => {
     <Flex
       as="nav"
       align="center"
-      justify="space-around"
+      justify="space-between"
       wrap="wrap"
       w="100%"
       mb={4}
       p={4}
+      py={1}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
       {...props}
     >
@@ -75,13 +77,16 @@ const NavBarContainer = ({ children, ...props }) => {
 const Header = ({ siteTitle }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggle = () => setIsOpen(!isOpen)
-  const bg = useColorModeValue("cyan.100", "cyan.900")
+  const bg = "primary"
   return (
     <header>
-      <NavBarContainer bg={bg}>
+      <NavBarContainer bg={bg} color="white">
+        <Flex>
         <LinkBox as={ReachLink} to="/">
-          <Logo w="100px" siteTitle={siteTitle} />
+          <Logo/>
         </LinkBox>
+        <Center style={{borderLeft:"1px solid"}} m={5} pl={2}>Développeur Freelance</Center>
+          </Flex>
         <MenuToggle toggle={toggle} isOpen={isOpen} />
         <MenuLinks isOpen={isOpen} />
       </NavBarContainer>
