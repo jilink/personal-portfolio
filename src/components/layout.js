@@ -11,8 +11,10 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
-import { Box } from "@chakra-ui/layout"
+import { Box, Flex} from "@chakra-ui/layout"
 import { useColorMode } from "@chakra-ui/color-mode"
+
+import CodingGuy from '../images/coding-guy.svg'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,23 +27,30 @@ const Layout = ({ children }) => {
       }
     }
   `)
-    const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode()
 
   return (
     <>
-    
       <Box
-        bgGradient={colorMode === "light" ? "radial(bgOrange.100,  bgOrange.500 );": ""}
+        bgGradient={
+          colorMode === "light" ? "radial(bgOrange.100,  bgOrange.500 );" : ""
+        }
+        position="relative"
+        zIndex="-2"
       >
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <Box
           style={{
             margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0 1.0875rem 1.45rem`,
+            padding: `0 2.0875rem 1.45rem`,
           }}
         >
-          <main>{children}</main>
+          <main>
+            <Flex zIndex="-1" position="fixed" w="100%" justify="flex-end" alignItems="end">
+              <CodingGuy />
+            </Flex>
+            {children}
+          </main>
           <footer
             style={{
               marginTop: `2rem`,

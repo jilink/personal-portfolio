@@ -1,5 +1,4 @@
 import { Flex, Text } from '@chakra-ui/layout'
-import CodingGuy from '../../images/coding-guy.svg'
 import Logo from "../images/logo"
 
 import React from 'react'
@@ -20,14 +19,12 @@ const Home = () => {
 
   const catchPhrase = site.siteMetadata.catchPhrase
   return (
-    <Flex>
-      <Flex  direction="column">
-        <Logo/>
+    <Flex justify="space-between" h="100vh">
+      <Flex direction="column">
+        <Logo />
         <Text>{catchPhrase}</Text>
-        <Flex>
-        </Flex>
+        <Flex></Flex>
       </Flex>
-      <CodingGuy/>
     </Flex>
   )
 }

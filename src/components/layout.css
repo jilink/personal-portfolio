@@ -5,6 +5,7 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  z-index: 1;
 }
 body {
   margin: 0;
