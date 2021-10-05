@@ -11,6 +11,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import { Box } from "@chakra-ui/layout"
+import { useColorMode } from "@chakra-ui/color-mode"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -18,32 +20,39 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          catchPhrase
         }
       }
     }
   `)
+    const { colorMode } = useColorMode()
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
+    
+      <Box
+        bgGradient={colorMode === "light" ? "radial(bgOrange.100,  bgOrange.500 );": ""}
       >
-        <main>{children}</main>
-        <footer
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <Box
           style={{
-            marginTop: `2rem`,
+            margin: `0 auto`,
+            maxWidth: 960,
+            padding: `0 1.0875rem 1.45rem`,
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+          <main>{children}</main>
+          <footer
+            style={{
+              marginTop: `2rem`,
+            }}
+          >
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.com">Gatsby</a>
+          </footer>
+        </Box>
+      </Box>
     </>
   )
 }

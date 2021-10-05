@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Cozy Codeur`,
     description: `Développeur Fullstack en Freelance`,
-    author: `CozyCodeur`,
+    author: `Cozy Codeur`,
+    catchPhrase: `Je développe des applications web sur mesure`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

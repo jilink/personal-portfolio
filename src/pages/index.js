@@ -2,10 +2,12 @@ import React from "react"
 
 import SEO from "../components/seo"
 import Contact from "../components/contact"
+import Home from "../components/home"
 
 const IndexPage = () => (
   <>
-    <SEO title="index" />
+    <SEO title="Jimmy Soussan"/>
+    <Home/>
     <Contact />
   </>
 )
