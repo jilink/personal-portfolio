@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Cozy Codeur`,
-    description: `Développeur Fullstack en Freelance`,
+    description: `Développeur Fullstack d'applications web en Freelance`,
     author: `Cozy Codeur`,
     catchPhrase: `Je développe des applications web sur mesure`,
   },

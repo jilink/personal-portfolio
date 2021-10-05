@@ -9,7 +9,7 @@ import {
   Button,
   Flex,
 } from "@chakra-ui/react"
-import Picture from "../images/contact.svg"
+import Picture from "../../images/contact.svg"
 
 const Contact = () => {
   return (

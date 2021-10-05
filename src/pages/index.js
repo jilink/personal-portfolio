@@ -1,8 +1,8 @@
 import React from "react"
 
 import SEO from "../components/seo"
-import Contact from "../components/contact"
-import Home from "../components/home"
+import Contact from "../components/sections/contact"
+import Home from "../components/sections/home"
 
 const IndexPage = () => (
   <>
