@@ -10,7 +10,9 @@ import {
   Link,
   Center,
   LinkBox,
+  Collapse
 } from "@chakra-ui/react"
+
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 
 import ThemeToggle from "./toggle-theme"
@@ -74,22 +76,26 @@ const NavBarContainer = ({ children, ...props }) => {
   )
 }
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, showHeader = false, ...props }) => {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggle = () => setIsOpen(!isOpen)
   const bg = "primary"
   return (
-    <header>
-      <NavBarContainer bg={bg} color="white">
-        <Flex>
-        <LinkBox as={ReachLink} to="/">
-          <Logo/>
-        </LinkBox>
-        <Center style={{borderLeft:"1px solid"}} m={5} pl={2}>Développeur Freelance</Center>
+    <header {...props}>
+      <Collapse in={showHeader} animateOpacity>
+        <NavBarContainer bg={bg} color="white">
+          <Flex>
+            <LinkBox as={ReachLink} to="/">
+              <Logo />
+            </LinkBox>
+            <Center style={{ borderLeft: "1px solid" }} m={5} pl={2}>
+              Développeur Freelance
+            </Center>
           </Flex>
-        <MenuToggle toggle={toggle} isOpen={isOpen} />
-        <MenuLinks isOpen={isOpen} />
-      </NavBarContainer>
+          <MenuToggle toggle={toggle} isOpen={isOpen} />
+          <MenuLinks isOpen={isOpen} />
+        </NavBarContainer>
+      </Collapse>
     </header>
   )
 }
