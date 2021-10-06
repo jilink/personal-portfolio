@@ -1,10 +1,11 @@
 import { Flex, Text } from '@chakra-ui/layout'
 import Logo from "../images/logo"
 
-import React from 'react'
+import React  from 'react'
 import { useStaticQuery } from 'gatsby'
 
 const Home = () => {
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,7 +20,7 @@ const Home = () => {
 
   const catchPhrase = site.siteMetadata.catchPhrase
   return (
-    <Flex justify="space-between" h="100vh">
+    <Flex id="#home" justify="space-between" h="100vh">
       <Flex direction="column">
         <Logo />
         <Text>{catchPhrase}</Text>

@@ -11,41 +11,46 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import "./svg.css"
 import { Box, Flex } from "@chakra-ui/layout"
 import { useColorMode } from "@chakra-ui/color-mode"
 
-import CodingGuy from '../images/coding-guy.svg'
+import CodingGuy from "../images/coding-guy.svg"
 
 const Layout = ({ children }) => {
+  const numberOfSections = 2
 
   const [currentScroll, setCurrentScroll] = useState(0)
   const [showHeader, setShowHeader] = useState(false)
+  const [codingGuyClass, setCodingGuyClass] = useState("coding-guy")
 
   // change state on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const scroll = window.scrollY;
-    if(scroll >= currentScroll && showHeader) {
-      setShowHeader(false)
+      const scroll = window.scrollY
+      if (scroll >= currentScroll && showHeader) {
+        setShowHeader(false)
+      }
+      if (scroll < currentScroll && !showHeader) {
+        setShowHeader(true)
+      }
+
+      const middleScroll = currentScroll + window.innerHeight / 2 // what position of the document is the middle of current screen display
+      const sectionHeight = document.body.scrollHeight / numberOfSections
+      setCodingGuyClass(
+        `coding-guy-${Math.floor(middleScroll / sectionHeight)}`
+      ) // we can get if we are in the first, the second etc section like that easily
+
+      setCurrentScroll(scroll)
     }
-    if(scroll < currentScroll && !showHeader) {
-      setShowHeader(true)
-    }
 
-    console.log("scroll", scroll)
-    console.log("current", currentScroll)
-
-    setCurrentScroll(scroll)
-
-    };
-
-    document.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => {
       // clean up the event handler when the component unmounts
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, [currentScroll, showHeader, setShowHeader]);
+      document.removeEventListener("scroll", handleScroll)
+    }
+  }, [currentScroll, showHeader, setShowHeader])
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -69,15 +74,15 @@ const Layout = ({ children }) => {
         w="100%"
         zIndex="-2"
       >
-          <Header
-            showHeader={showHeader}
-            style={{
-              width: "100%",
-              zIndex: "2",
-              position: "fixed",
-            }}
-            siteTitle={data.site.siteMetadata?.title || `Title`}
-          />
+        <Header
+          showHeader={showHeader}
+          style={{
+            width: "100%",
+            zIndex: "2",
+            position: "fixed",
+          }}
+          siteTitle={data.site.siteMetadata?.title || `Title`}
+        />
         <Box
           style={{
             margin: `0 auto`,
@@ -92,7 +97,7 @@ const Layout = ({ children }) => {
               justify="flex-end"
               alignItems="end"
             >
-              <CodingGuy />
+              <CodingGuy className={codingGuyClass} />
             </Flex>
             {children}
           </main>

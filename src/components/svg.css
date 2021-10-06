@@ -1,0 +1,7 @@
+.coding-guy-0 rect, .coding-guy-0 ellipse, .coding-guy-0 circle, .coding-guy-0 path:not(#Tracé_143) {
+    transition: fill 0.5s ease;
+}
+.coding-guy-1 rect, .coding-guy-1 ellipse, .coding-guy-1 circle, .coding-guy-1 path:not(#Tracé_143) {
+    fill: #264653;
+    transition: fill 0.5s ease;
+}
