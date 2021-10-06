@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
   const numberOfSections = 2
 
   const [currentScroll, setCurrentScroll] = useState(0)
-  const [showHeader, setShowHeader] = useState(false)
+  const [showHeader, setShowHeader] = useState(true)
   const [codingGuyClass, setCodingGuyClass] = useState("coding-guy")
 
   // change state on scroll
@@ -86,8 +86,9 @@ const Layout = ({ children }) => {
         <Box
           style={{
             margin: `0 auto`,
-            padding: `0 2.0875rem 1.45rem`,
+            padding: `inherit 2.0875rem 1.45rem`,
           }}
+        pt={{base: '15vh', md: '20vh', lg:'10vh'}}
         >
           <main>
             <Flex
