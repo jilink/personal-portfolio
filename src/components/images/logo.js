@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Logo = ({...props}) => {
+const Logo = ({big=false,...props}) => {
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "mylogo.png" }) {
@@ -12,9 +12,19 @@ const Logo = ({...props}) => {
           }
         }
       }
+      logoBig: file(relativePath: { eq: "mylogo.png" }) {
+        childImageSharp {
+          fixed(width: 400) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
 
+  if (big && data?.logoBig?.childImageSharp?.fixed) {
+    return <Img loading="eager" fadeIn={true} fixed={data.logoBig.childImageSharp.fixed} {...props}/>
+  }
   if (data?.logo?.childImageSharp?.fixed) {
     return <Img loading="eager" fadeIn={true} fixed={data.logo.childImageSharp.fixed} {...props}/>
   }

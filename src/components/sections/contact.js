@@ -1,22 +1,17 @@
 import React from "react"
 import {
-  Box,
   FormLabel,
   FormControl,
   Input,
-  Heading,
   Textarea,
   Button,
   Flex,
 } from "@chakra-ui/react"
-import Picture from "../../images/contact.svg"
+import Section from "./Section"
 
 const Contact = () => {
   return (
-    <Box id="contact">
-      <Heading as="h3" size="lt" textAlign="center">
-        Me contacter
-      </Heading>
+    <Section id="contact" title="Me contacter">
       <Flex>
         <form>
           <FormControl id="name" isRequired>
@@ -43,9 +38,8 @@ const Contact = () => {
           </FormControl>
           <Button type="submit">Envoyer</Button>
         </form>
-        <Picture />
       </Flex>
-    </Box>
+    </Section>
   )
 }
 

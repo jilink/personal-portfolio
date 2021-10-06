@@ -1,0 +1,15 @@
+import { Flex, Heading } from '@chakra-ui/layout'
+import React from 'react'
+
+const Section = ({ children, title, ...props }) => {
+  return (
+    <Flex direction="column" h="100vh" {...props} p="4">
+      <Heading as="h2" size="lg" textAlign="center" color="white">
+        {title}
+      </Heading>
+      {children}
+    </Flex>
+  )
+}
+
+export default Section

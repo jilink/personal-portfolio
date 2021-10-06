@@ -3,7 +3,7 @@ module.exports = {
     title: `Cozy Codeur`,
     description: `Développeur Fullstack d'applications web en Freelance`,
     author: `Cozy Codeur`,
-    catchPhrase: `Je développe des applications web sur mesure`,
+    catchPhrase: `Je développe vos projets web sur mesure`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
