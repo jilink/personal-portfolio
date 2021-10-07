@@ -18,7 +18,7 @@ import { useColorMode } from "@chakra-ui/color-mode"
 import CodingGuy from "../images/coding-guy.svg"
 
 const Layout = ({ children }) => {
-  const numberOfSections = 2
+  const numberOfSections = 3
 
   const [currentScroll, setCurrentScroll] = useState(0)
   const [showHeader, setShowHeader] = useState(true)

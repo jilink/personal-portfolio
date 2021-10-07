@@ -50,9 +50,9 @@ const MenuLinks = ({ isOpen }) => (
       pt={[4, 4, 0, 0]}
     >
       <LinkItem to="#contact">Contacter</LinkItem>
-      <LinkItem to="/">Services/Tarifs</LinkItem>
+      <LinkItem to="#services">Services/Tarifs</LinkItem>
       <LinkItem to="/">Compétences</LinkItem>
-      <LinkItem to="/">Projets</LinkItem>
+      <LinkItem to="#projets">Projets</LinkItem>
       <ThemeToggle />
     </Stack>
   </Box>

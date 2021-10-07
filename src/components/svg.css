@@ -5,3 +5,7 @@
     fill: #264653;
     transition: fill 0.5s ease;
 }
+.coding-guy-2 rect, .coding-guy-2 ellipse, .coding-guy-2 circle, .coding-guy-2 path:not(#Tracé_143) {
+    fill: #2A9D8F;
+    transition: fill 0.5s ease;
+}

@@ -23,7 +23,7 @@ const Home = () => {
   const catchPhrase = site.siteMetadata.catchPhrase
   const big = useBreakpointValue({ base: false, md: true })
   return (
-    <Section id="#home" color="white">
+    <Section id="home" color="white">
       <Flex>
         <Flex direction="column" flex="1" align="center">
           <Logo big={big} />
