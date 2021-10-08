@@ -3,8 +3,8 @@ import React from 'react'
 
 const Section = ({ children, title, ...props }) => {
   return (
-    <Flex direction="column" h="100vh" {...props} p="4">
-      <Heading mb={title ? 8 : 0} as="h2" size="lg" textAlign="center" color="white">
+    <Flex direction="column" minH="100vh" {...props} p="4">
+      <Heading mb={title ? 8 : 0} as="h2" size="2xl" textAlign="center" color="white">
         {title}
       </Heading>
       {children}
