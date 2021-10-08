@@ -56,7 +56,6 @@ const Projets = () => {
     }
   `)
 
-  console.log("data", data)
   const projects = [
     {
       title: "Portfolio",
