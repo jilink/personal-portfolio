@@ -1,64 +1,88 @@
+import { Box, Center, Divider, Flex, Heading, Text } from '@chakra-ui/layout'
 import { graphql, useStaticQuery } from 'gatsby'
+import Img from "gatsby-image"
 import React from 'react'
 import Section from './Section'
 
 const Competences = () => {
   const data = useStaticQuery(graphql`
     query {
-      Coiffeur: file(relativePath: { eq: "coiffeur-vitrine-minimalist.png" }) {
-        childImageSharp {
-          fixed(width: 700, height: 400, cropFocus: WEST) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      Portfolio: file(relativePath: { eq: "portfolio-minimalist.png" }) {
-        childImageSharp {
-          fixed(width: 700, height: 400, cropFocus: WEST) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-
-      garticClone: file(relativePath: { eq: "gartic-clone-minimalist.png" }) {
-        childImageSharp {
-          fixed(width: 700, height: 400, cropFocus: WEST) {
-            ...GatsbyImageSharpFixed
+      Front: allFile(filter: { absolutePath: { regex: "/frontend/" } }) {
+        edges {
+          node {
+            id
+            name
+            childImageSharp {
+              fluid(maxWidth: 200, maxHeight: 200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
 
-      sushiClicker: file(relativePath: { eq: "sushi-clicker-minimalist.png" }) {
-        childImageSharp {
-          fixed(width: 700, height: 400, cropFocus: WEST) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-
-      kohLanta: file(relativePath: { eq: "koh-lanta-minimalist.png" }) {
-        childImageSharp {
-          fixed(width: 700, height: 400, cropFocus: WEST) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-
-      Github: file(relativePath: { eq: "github-minimalist.png" }) {
-        childImageSharp {
-          fixed(width: 700, height: 400, cropFocus: WEST) {
-            ...GatsbyImageSharpFixed
+      Back: allFile(filter: { absolutePath: { regex: "/backend/" } }) {
+        edges {
+          node {
+            id
+            name
+            childImageSharp {
+              fluid(maxWidth: 200, maxHeight: 200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
   `)
 
-  console.log("data", data)
+  console.log("data", data.Front.edges)
   return (
     <Section id="competences" title="Compétences">
+      <SkillCategory title="Front-End" skills={data?.Front.edges}/>
+      <SkillCategory title="Back-End" skills={data?.Back.edges}/>
+      <SkillCategory title="Autres outils"/>
     </Section>
   )
 }
+
+const SkillCategory = ({title, skills=[]}) => {
+  return (
+    <Box>
+      <Heading
+        m={title ? 6 : 0}
+        as="h3"
+        size="lg"
+        textAlign="center"
+        color="white"
+      >
+        {title}
+      </Heading>
+      <Divider />
+      <Flex>
+      {skills.map(skill => (
+        <Skill key={skill.node.id} skill={skill.node} />
+      ))}
+      </Flex>
+    </Box>
+  )
+}
+
+const Skill = ({skill}) => {
+
+  return (
+    <Flex alignItems="center" direction="column" width={{base: "50%", md:"30%"}}>
+      <Center textTransform="capitalize">{skill.name}</Center>
+      <Img
+        style={{ width: "inherit", height: "inherit" }}
+        loading="lazy"
+        fluid={skill.childImageSharp.fluid}
+        alt={skill.name}
+      />
+    </Flex>
+  )
+}
+
 
 export default Competences
