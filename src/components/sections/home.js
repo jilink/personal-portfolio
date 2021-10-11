@@ -30,7 +30,8 @@ const Home = () => {
           <Center fontSize="smaller">{catchPhrase}</Center>
           <Flex justify="center">
             <CoolButton href='#contact' bg="greenblue">Contacter</CoolButton>
-            <CoolButton href='#services' bg="primary">Services</CoolButton>
+            {/* <CoolButton href='#services' bg="primary">Services</CoolButton> */}
+            <CoolButton href='#competences' bg="primary">Compétences</CoolButton>
           </Flex>
         </Flex>
         <Spacer />

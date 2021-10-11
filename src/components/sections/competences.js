@@ -34,36 +34,44 @@ const Competences = () => {
           }
         }
       }
+
+      Others: allFile(filter: { absolutePath: { regex: "/others/" } }) {
+        edges {
+          node {
+            id
+            name
+            childImageSharp {
+              fluid(maxWidth: 200, maxHeight: 200) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
   console.log("data", data.Front.edges)
   return (
-    <Section id="competences" title="Compétences">
+    <Section id="competences" title="Compétences" justify="space-between">
       <SkillCategory title="Front-End" skills={data?.Front.edges}/>
-      <SkillCategory title="Back-End" skills={data?.Back.edges}/>
-      <SkillCategory title="Autres outils"/>
+      <SkillCategory title="Back-End" skills={data?.Back.edges} bg="black" color="white"/>
+      <SkillCategory title="Autres outils" skills={data?.Others.edges} bg="primary" color="white"/>
     </Section>
   )
 }
 
-const SkillCategory = ({title, skills=[]}) => {
+const SkillCategory = ({title, skills=[], ...props}) => {
   return (
-    <Box>
-      <Heading
-        m={title ? 6 : 0}
-        as="h3"
-        size="lg"
-        textAlign="center"
-        color="white"
-      >
+    <Box m="3" bg="white" shadow="2xl" {...props}>
+      <Heading bg="inherit" m="0" as="h3" size="lg" textAlign="center">
         {title}
       </Heading>
       <Divider />
-      <Flex>
-      {skills.map(skill => (
-        <Skill key={skill.node.id} skill={skill.node} />
-      ))}
+      <Flex p="4" wrap="wrap" justify="center">
+        {skills.map(skill => (
+          <Skill key={skill.node.id} skill={skill.node} />
+        ))}
       </Flex>
     </Box>
   )
@@ -72,7 +80,7 @@ const SkillCategory = ({title, skills=[]}) => {
 const Skill = ({skill}) => {
 
   return (
-    <Flex alignItems="center" direction="column" width={{base: "50%", md:"30%"}}>
+    <Flex alignItems="center" direction="column" width={{base: "25%", md:"20%"}}>
       <Center textTransform="capitalize">{skill.name}</Center>
       <Img
         style={{ width: "inherit", height: "inherit" }}
