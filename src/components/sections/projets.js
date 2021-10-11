@@ -1,5 +1,5 @@
 import Img from "gatsby-image"
-import { Box, Center, Flex, LinkOverlay, Text } from '@chakra-ui/layout'
+import { Box, Flex, LinkOverlay, Text } from '@chakra-ui/layout'
 import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState }  from 'react'
 import Section from './Section'
@@ -66,7 +66,7 @@ const Projets = () => {
     },
     {
       title: "Coiffeur Vitrine",
-      url: "/",
+      url: "https://coiffeur-vitrine.netlify.app",
       image: data?.Coiffeur,
       description:
         "Un exemple de site assez sobre pour coiffeur, développé avec Gatsby",

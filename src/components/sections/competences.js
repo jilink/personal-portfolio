@@ -1,7 +1,5 @@
-import Img from "gatsby-image"
-import { Box, Center, Flex, LinkOverlay, Text } from '@chakra-ui/layout'
 import { graphql, useStaticQuery } from 'gatsby'
-import React, { useState }  from 'react'
+import React from 'react'
 import Section from './Section'
 
 const Competences = () => {
