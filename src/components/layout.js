@@ -5,6 +5,8 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
+import { Box, Flex } from "@chakra-ui/layout"
+import { useColorMode } from "@chakra-ui/color-mode"
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -12,8 +14,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import "./svg.css"
-import { Box, Flex } from "@chakra-ui/layout"
-import { useColorMode } from "@chakra-ui/color-mode"
 
 import CodingGuy from "../images/coding-guy.svg"
 import Footer from "./Footer"
@@ -67,9 +67,10 @@ const Layout = ({ children }) => {
 
   return (
     <>
+
       <Box
         bgGradient={
-          colorMode === "light" ? "radial(bgOrange.100,  bgOrange.500 );" : ""
+          colorMode !== "dark" ? "radial(bgOrange.100,  bgOrange.500 );" : ""
         }
         position="absolute"
         w="100%"
@@ -102,8 +103,8 @@ const Layout = ({ children }) => {
               <CodingGuy className={codingGuyClass} />
             </Flex>
             {children}
+            <Footer/>
           </main>
-          <Footer/>
         </Box>
       </Box>
     </>

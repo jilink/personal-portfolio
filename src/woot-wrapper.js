@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react"
+import theme from "./@chakra-ui/gatsby-plugin/theme"
 import React from "react"
 import Layout from "./components/layout"
-import theme from "./@chakra-ui/gatsby-plugin/theme"
 export const wrapPageElement = ({ element }) => {
   return (
     <ChakraProvider theme={theme} resetCSS>

@@ -10,6 +10,9 @@ module.exports = {
     catchPhrase: `Je développe vos projets web sur mesure`,
   },
   plugins: [
+    {
+      resolve: `@chakra-ui/gatsby-plugin`,
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-react-svg`,
@@ -17,13 +20,6 @@ module.exports = {
         rule: {
           include: /images/,
         },
-      },
-    },
-    {
-      resolve: `@chakra-ui/gatsby-plugin`,
-      options: {
-        resetCSS: true,
-        isUsingColorMode: true,
       },
     },
     {
