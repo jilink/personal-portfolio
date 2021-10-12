@@ -44,6 +44,9 @@ const Contact = () => {
 
   const sendEmail = e => {
     e.preventDefault()
+    console.log("ici env", process.env)
+    console.log("ici envuser", process.env.MAILJS_USERID)
+    console.log("ici envuser gatsby", process.env.GATSBY_MAILJS_USERID)
     emailjs
       .sendForm(
         process.env.MAILJS_SERVICEID,
@@ -77,7 +80,7 @@ const Contact = () => {
         <AlertIcon boxSize="40px" mr={0} color="primary" />
         <AlertTitle mt={4} mb={1} fontSize="lg">
           Besoin d'aide pour construire un site vitrine, une application web ou
-          une api ?
+          une API ?
         </AlertTitle>
         <AlertDescription maxWidth="lg" fontSize={{ base: "small", md: "md" }}>
           J'aide les entreprises et les particuliers à construire leur projets
