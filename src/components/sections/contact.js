@@ -44,15 +44,12 @@ const Contact = () => {
 
   const sendEmail = e => {
     e.preventDefault()
-    console.log("ici env", process.env)
-    console.log("ici envuser", process.env.MAILJS_USERID)
-    console.log("ici envuser gatsby", process.env.GATSBY_MAILJS_USERID)
     emailjs
       .sendForm(
-        process.env.MAILJS_SERVICEID,
-        process.env.MAILJS_TEMPLATEID,
+        process.env.GATSBY_MAILJS_SERVICEID,
+        process.env.GATSBY_MAILJS_TEMPLATEID,
         form.current,
-        process.env.MAILJS_USERID
+        process.env.GATSBY_MAILJS_USERID
       )
       .then(
         result => {
