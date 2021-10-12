@@ -1,4 +1,4 @@
-import { Box, Center, Divider, Flex, Heading, Text } from '@chakra-ui/layout'
+import { Box, Center, Divider, Flex, Heading } from '@chakra-ui/layout'
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from "gatsby-image"
 import React from 'react'
@@ -54,7 +54,7 @@ const Competences = () => {
   console.log("data", data.Front.edges)
   return (
     <Section id="competences" title="Compétences" justify="space-between">
-      <SkillCategory title="Front-End" skills={data?.Front.edges}/>
+      <SkillCategory title="Front-End" skills={data?.Front.edges} bg="white" color="black"/>
       <SkillCategory title="Back-End" skills={data?.Back.edges} bg="black" color="white"/>
       <SkillCategory title="Autres outils" skills={data?.Others.edges} bg="primary" color="white"/>
     </Section>
