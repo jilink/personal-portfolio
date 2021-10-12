@@ -16,6 +16,7 @@ import { Box, Flex } from "@chakra-ui/layout"
 import { useColorMode } from "@chakra-ui/color-mode"
 
 import CodingGuy from "../images/coding-guy.svg"
+import Footer from "./Footer"
 
 const Layout = ({ children }) => {
   const numberOfSections = 4
@@ -102,15 +103,7 @@ const Layout = ({ children }) => {
             </Flex>
             {children}
           </main>
-          <footer
-            style={{
-              marginTop: `2rem`,
-            }}
-          >
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
-          </footer>
+          <Footer/>
         </Box>
       </Box>
     </>
