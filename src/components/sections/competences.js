@@ -51,7 +51,6 @@ const Competences = () => {
     }
   `)
 
-  console.log("data", data.Front.edges)
   return (
     <Section id="competences" title="Compétences" justify="space-between">
       <SkillCategory title="Front-End" skills={data?.Front.edges} bg="white" color="black"/>

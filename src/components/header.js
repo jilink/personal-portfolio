@@ -69,6 +69,7 @@ const NavBarContainer = ({ children, ...props }) => {
       p={4}
       py={1}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
+      borderBottom="black 1px solid"
       {...props}
     >
       {children}

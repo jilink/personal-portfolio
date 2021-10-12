@@ -10,13 +10,14 @@ import {
   AlertTitle,
   AlertDescription,
   Link,
+  Spacer,
 } from "@chakra-ui/react"
 import Section from "./Section"
 import { CoolButtonSubmit } from "../CoolButton"
 
 const Contact = () => {
   return (
-    <Section id="contact" title="Me contacter">
+    <Section id="contact" title="Me contacter" justify="space-between">
       <Alert
         status="info"
         variant="subtle"
@@ -25,15 +26,17 @@ const Contact = () => {
         justifyContent="center"
         textAlign="center"
         my="3"
+        bg="greenblue"
+        color="white"
       >
-        <AlertIcon boxSize="40px" mr={0} />
+        <AlertIcon boxSize="40px" mr={0} color="primary"/>
         <AlertTitle mt={4} mb={1} fontSize="lg">
           Besoin d'aide pour construire un site vitrine, une application web ou
-          encore constuire une api ?
+          une api ?
         </AlertTitle>
         <AlertDescription maxWidth="lg" fontSize={{ base: "small", md: "md" }}>
           J'aide les entreprises et les particuliers à construire leur projets
-          web avec Reactjs, vous pouvez me contacter en remplissant le
+          web notamment avec Reactjs, vous pouvez me contacter en remplissant le
           formulaire ci-dessous ou en m'envoyant un message sur{" "}
           <Link
             fontWeight="bold"
@@ -43,6 +46,7 @@ const Contact = () => {
           </Link>
         </AlertDescription>
       </Alert>
+      <Spacer/>
       <Flex direction="column" w={{ base: "100%", md: "50%" }}>
         <form>
           <Flex justify="space-between" mb="3">
@@ -83,13 +87,14 @@ const Contact = () => {
             fontSize="lg"
             w="100%"
             mx="0"
-            bg="greenblue"
+            bg="primary"
             color="white"
           >
             Envoyer
           </CoolButtonSubmit>
         </form>
       </Flex>
+      <Spacer/>
     </Section>
   )
 }
