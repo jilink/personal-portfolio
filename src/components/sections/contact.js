@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import {
   FormLabel,
   FormControl,
@@ -11,11 +11,56 @@ import {
   AlertDescription,
   Link,
   Spacer,
+  useToast,
 } from "@chakra-ui/react"
 import Section from "./Section"
 import { CoolButtonSubmit } from "../CoolButton"
+import emailjs from 'emailjs-com';
+
 
 const Contact = () => {
+  const form = useRef()
+
+  const toast = useToast()
+  const toastSuccess = () => {
+    toast({
+      title: "Bien envoyé !",
+      description: "Je répondrais à votre message d'ici peu",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    })
+  }
+  const toastFaillure = () => {
+    toast({
+      title: "Il y a eu un soucis ...",
+      description:
+        "Si le problème continue, envoyez moi un message sur les réseaux ci-dessous",
+      status: "error",
+      duration: 4000,
+      isClosable: true,
+    })
+  }
+
+  const sendEmail = e => {
+    e.preventDefault()
+    emailjs
+      .sendForm(
+        process.env.MAILJS_SERVICEID,
+        process.env.MAILJS_TEMPLATEID,
+        form.current,
+        process.env.MAILJS_USERID
+      )
+      .then(
+        result => {
+          toastSuccess()
+        },
+        error => {
+          toastFaillure()
+        }
+      )
+  }
+
   return (
     <Section id="contact" title="Me contacter" justify="space-between">
       <Alert
@@ -29,7 +74,7 @@ const Contact = () => {
         bg="greenblue"
         color="white"
       >
-        <AlertIcon boxSize="40px" mr={0} color="primary"/>
+        <AlertIcon boxSize="40px" mr={0} color="primary" />
         <AlertTitle mt={4} mb={1} fontSize="lg">
           Besoin d'aide pour construire un site vitrine, une application web ou
           une api ?
@@ -46,18 +91,18 @@ const Contact = () => {
           </Link>
         </AlertDescription>
       </Alert>
-      <Spacer/>
+      <Spacer />
       <Flex direction="column" w={{ base: "100%", md: "50%" }}>
-        <form>
+        <form ref={form} onSubmit={sendEmail}>
           <Flex justify="space-between" mb="3">
             <FormControl id="name" mr="3" isRequired>
               <FormLabel>Nom</FormLabel>
-              <CoolInput name="name" placeholder="John Doe" />
+              <CoolInput name="from_name" placeholder="John Doe" />
             </FormControl>
             <FormControl id="email" isRequired>
               <FormLabel>Adresse e-mail</FormLabel>
               <CoolInput
-                name="email"
+                name="reply_to"
                 type="email"
                 placeholder="john@example.com"
               />
@@ -66,7 +111,7 @@ const Contact = () => {
           <FormControl id="subject" mb="3">
             <FormLabel>Objet du message</FormLabel>
             <CoolInput
-              name="subjeect"
+              name="subject"
               type="text"
               placeholder="Site web pour mon entreprise"
             />
@@ -81,6 +126,7 @@ const Contact = () => {
               borderRadius="0"
               bg="white"
               placeholder="J'ai besoin d'aide pour ..."
+              name="message"
             />
           </FormControl>
           <CoolButtonSubmit
@@ -94,7 +140,7 @@ const Contact = () => {
           </CoolButtonSubmit>
         </form>
       </Flex>
-      <Spacer/>
+      <Spacer />
     </Section>
   )
 }
