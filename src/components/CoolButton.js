@@ -18,4 +18,22 @@ const CoolButton = ({ href, children, ...props }) => {
   )
 }
 
+const CoolButtonSubmit = ({ children, ...props }) => {
+  return (
+    <Button
+      type="submit"
+      minW="50%"
+      border="1px solid transparent"
+      borderRadius="0"
+      size="sm"
+      _hover={{ borderColor: "black" }}
+      m="2"
+      {...props}
+    >
+      {children}
+    </Button>
+  )
+}
+
 export default CoolButton
+export { CoolButtonSubmit }
