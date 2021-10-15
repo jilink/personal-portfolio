@@ -40,7 +40,7 @@ const MenuLinks = ({ isOpen }) => (
   <Box
     display={{ base: isOpen ? "block" : "none", md: "block" }}
     flexBasis={{ base: "100%", md: "auto" }}
-    fontWeight="semibold"
+    fontWeight="medium"
   >
     <Stack
       spacing={8}
