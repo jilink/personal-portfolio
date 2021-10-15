@@ -61,7 +61,7 @@ const Footer = () => {
     // },
   ]
   return (
-    <Box w="100%" bg="greenblue" color="white" minH="5vh">
+    <Box py="3" w="100%" bg="black" color="white" minH="5vh">
       <Flex p="3" justify="space-around">
         {socials.map(social => (
           <Social key={social.title} social={social} />

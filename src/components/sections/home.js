@@ -27,7 +27,7 @@ const Home = () => {
       <Flex>
         <Flex direction="column" flex="1" align="center">
           <Logo big={big} md={!big} />
-          <Center fontSize="smaller">{catchPhrase}</Center>
+          <Center textAlign="center" fontSize="smaller">{catchPhrase}</Center>
           <Flex justify="center">
             <CoolButton href='#contact' bg="greenblue">Contacter</CoolButton>
             {/* <CoolButton href='#services' bg="primary">Services</CoolButton> */}
