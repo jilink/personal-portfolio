@@ -12,6 +12,7 @@ import {
   Link,
   Spacer,
   useToast,
+  Center,
 } from "@chakra-ui/react"
 import Section from "./Section"
 import { CoolButtonSubmit } from "../CoolButton"
@@ -139,6 +140,16 @@ const Contact = () => {
             Envoyer
           </CoolButtonSubmit>
         </form>
+        <Center fontSize="lg">
+          Ou réservez directement un&nbsp;
+          <Link
+            fontWeight="extrabold"
+            target="_blank"
+            href="https://calendly.com/cozy-codeur/30min"
+          >
+            rendez-vous téléphonique
+          </Link>
+        </Center>
       </Flex>
       <Spacer />
     </Section>
