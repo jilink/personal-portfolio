@@ -1,8 +1,8 @@
-import { Box, Center, Divider, Flex, Heading } from '@chakra-ui/layout'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Box, Center, Divider, Flex, Heading } from "@chakra-ui/layout"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React from 'react'
-import Section from './Section'
+import React from "react"
+import Section from "./Section"
 
 const Competences = () => {
   const data = useStaticQuery(graphql`
@@ -53,14 +53,29 @@ const Competences = () => {
 
   return (
     <Section id="competences" title="Compétences" justify="space-between">
-      <SkillCategory title="Front-End" skills={data?.Front.edges} bg="white" color="black"/>
-      <SkillCategory title="Back-End" skills={data?.Back.edges} bg="black" color="white"/>
-      <SkillCategory title="Autres outils" skills={data?.Others.edges} bg="primary" color="white"/>
+      <SkillCategory
+        title="Front-End"
+        skills={data?.Front.edges}
+        bg="white"
+        color="black"
+      />
+      <SkillCategory
+        title="Back-End"
+        skills={data?.Back.edges}
+        bg="black"
+        color="white"
+      />
+      <SkillCategory
+        title="Autres outils"
+        skills={data?.Others.edges}
+        bg="primary"
+        color="white"
+      />
     </Section>
   )
 }
 
-const SkillCategory = ({title, skills=[], ...props}) => {
+const SkillCategory = ({ title, skills = [], ...props }) => {
   return (
     <Box m="3" bg="white" shadow="2xl" {...props}>
       <Heading bg="inherit" m="0" as="h3" size="lg" textAlign="center">
@@ -76,10 +91,13 @@ const SkillCategory = ({title, skills=[], ...props}) => {
   )
 }
 
-const Skill = ({skill}) => {
-
+const Skill = ({ skill }) => {
   return (
-    <Flex alignItems="center" direction="column" width={{base: "25%", md:"20%"}}>
+    <Flex
+      alignItems="center"
+      direction="column"
+      width={{ base: "25%", md: "20%" }}
+    >
       <Center textTransform="capitalize">{skill.name}</Center>
       <Img
         style={{ width: "inherit", height: "inherit" }}
@@ -90,6 +108,5 @@ const Skill = ({skill}) => {
     </Flex>
   )
 }
-
 
 export default Competences

@@ -10,7 +10,7 @@ import {
   Link,
   Center,
   LinkBox,
-  Collapse
+  Collapse,
 } from "@chakra-ui/react"
 
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
@@ -28,7 +28,12 @@ const MenuToggle = ({ toggle, isOpen }) => {
 
 const LinkItem = ({ children, isLast, to = "/", ...rest }) => {
   return (
-    <Link as={ReachLink} to={to} style={{ boxShadow: "none" }} _hover={{ textDecoration: "none", color:"secondary"}}>
+    <Link
+      as={ReachLink}
+      to={to}
+      style={{ boxShadow: "none" }}
+      _hover={{ textDecoration: "none", color: "secondary" }}
+    >
       <Text display="block" {...rest}>
         {children}
       </Text>

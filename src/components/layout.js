@@ -67,7 +67,6 @@ const Layout = ({ children }) => {
 
   return (
     <>
-
       <Box
         bgGradient={
           colorMode !== "dark" ? "radial(bgOrange.100,  bgOrange.500 );" : ""
@@ -90,7 +89,7 @@ const Layout = ({ children }) => {
             margin: `0 auto`,
             padding: `inherit 2.0875rem 1.45rem`,
           }}
-        pt={{base: '15vh', md: '20vh', lg:'10vh'}}
+          pt={{ base: "15vh", md: "20vh", lg: "10vh" }}
         >
           <main>
             <Flex
@@ -103,7 +102,7 @@ const Layout = ({ children }) => {
               <CodingGuy className={codingGuyClass} />
             </Flex>
             {children}
-            <Footer/>
+            <Footer />
           </main>
         </Box>
       </Box>

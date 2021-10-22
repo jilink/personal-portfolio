@@ -1,7 +1,7 @@
-import { Box, Center, Flex, LinkBox, LinkOverlay } from '@chakra-ui/layout'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Box, Center, Flex, LinkBox, LinkOverlay } from "@chakra-ui/layout"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import React from 'react'
+import React from "react"
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -37,7 +37,6 @@ const Footer = () => {
     }
   `)
 
-
   const socials = [
     {
       title: "LinkedIn",
@@ -51,7 +50,8 @@ const Footer = () => {
     },
     {
       title: "Gmail",
-      url: "https://mail.google.com/mail/u/0/?fs=1&to=jimmy.soussan@gmail.com&su=Mon+projet+web&tf=cm",
+      url:
+        "https://mail.google.com/mail/u/0/?fs=1&to=jimmy.soussan@gmail.com&su=Mon+projet+web&tf=cm",
       image: data?.Gmail,
     },
     // {
@@ -72,20 +72,14 @@ const Footer = () => {
   )
 }
 
-const Social = ({social}) => {
-
+const Social = ({ social }) => {
   return (
     <LinkBox
       alignItems="center"
       direction="column"
       width={{ base: "3vh", md: "3vh" }}
     >
-      <LinkOverlay
-        target="_blank"
-        w="inherit"
-        h="inherit"
-        href={social.url}
-      >
+      <LinkOverlay target="_blank" w="inherit" h="inherit" href={social.url}>
         <Img
           loading="lazy"
           fluid={social.image.childImageSharp.fluid}

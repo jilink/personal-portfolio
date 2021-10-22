@@ -1,8 +1,8 @@
 import Img from "gatsby-image"
-import { Box, Flex, LinkOverlay, Text } from '@chakra-ui/layout'
-import { graphql, useStaticQuery } from 'gatsby'
-import React, { useState }  from 'react'
-import Section from './Section'
+import { Box, Flex, LinkOverlay, Text } from "@chakra-ui/layout"
+import { graphql, useStaticQuery } from "gatsby"
+import React, { useState } from "react"
+import Section from "./Section"
 
 const Projets = () => {
   const data = useStaticQuery(graphql`
@@ -82,8 +82,7 @@ const Projets = () => {
       title: "Sushi Clicker",
       url: "https://sushi-clicker.netlify.app/",
       image: data?.sushiClicker,
-      description:
-        "Un 'Cookie Clicker like' développé avec Reactjs et Webpack",
+      description: "Un 'Cookie Clicker like' développé avec Reactjs et Webpack",
     },
     {
       title: "Koh Lanta Simulator",
@@ -112,7 +111,7 @@ const Projets = () => {
 }
 
 const Projet = ({ project }) => {
-const [showDescription, setShowDescription] = useState(0)
+  const [showDescription, setShowDescription] = useState(0)
 
   return (
     <Box

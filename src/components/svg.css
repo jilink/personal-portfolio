@@ -1,15 +1,27 @@
-.coding-guy-0 rect, .coding-guy-0 ellipse, .coding-guy-0 circle, .coding-guy-0 path:not(#Tracé_143) {
-    transition: fill 0.5s ease;
+.coding-guy-0 rect,
+.coding-guy-0 ellipse,
+.coding-guy-0 circle,
+.coding-guy-0 path:not(#Tracé_143) {
+  transition: fill 0.5s ease;
 }
-.coding-guy-1 rect, .coding-guy-1 ellipse, .coding-guy-1 circle, .coding-guy-1 path:not(#Tracé_143) {
-    fill: #264653;
-    transition: fill 0.5s ease;
+.coding-guy-1 rect,
+.coding-guy-1 ellipse,
+.coding-guy-1 circle,
+.coding-guy-1 path:not(#Tracé_143) {
+  fill: #264653;
+  transition: fill 0.5s ease;
 }
-.coding-guy-2 rect, .coding-guy-2 ellipse, .coding-guy-2 circle, .coding-guy-2 path:not(#Tracé_143) {
-    fill: #2A9D8F;
-    transition: fill 0.5s ease;
+.coding-guy-2 rect,
+.coding-guy-2 ellipse,
+.coding-guy-2 circle,
+.coding-guy-2 path:not(#Tracé_143) {
+  fill: #2a9d8f;
+  transition: fill 0.5s ease;
 }
-.coding-guy-3 rect, .coding-guy-3 ellipse, .coding-guy-3 circle, .coding-guy-3 path:not(#Tracé_143) {
-    fill: #F15A24;
-    transition: fill 0.5s ease;
+.coding-guy-3 rect,
+.coding-guy-3 ellipse,
+.coding-guy-3 circle,
+.coding-guy-3 path:not(#Tracé_143) {
+  fill: #f15a24;
+  transition: fill 0.5s ease;
 }

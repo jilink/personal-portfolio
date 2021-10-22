@@ -8,10 +8,10 @@ import Competences from "../components/sections/competences"
 
 const IndexPage = () => (
   <>
-    <SEO title="Jimmy Soussan"/>
-    <Home/>
-    <Projets/>
-    <Competences/>
+    <SEO title="Jimmy Soussan" />
+    <Home />
+    <Projets />
+    <Competences />
     <Contact />
   </>
 )

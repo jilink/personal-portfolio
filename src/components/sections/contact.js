@@ -16,8 +16,7 @@ import {
 } from "@chakra-ui/react"
 import Section from "./Section"
 import { CoolButtonSubmit } from "../CoolButton"
-import emailjs from 'emailjs-com';
-
+import emailjs from "emailjs-com"
 
 const Contact = () => {
   const form = useRef()

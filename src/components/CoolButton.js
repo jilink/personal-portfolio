@@ -1,6 +1,6 @@
-import { Button } from '@chakra-ui/button'
-import { LinkOverlay } from '@chakra-ui/react'
-import React from 'react'
+import { Button } from "@chakra-ui/button"
+import { LinkOverlay } from "@chakra-ui/react"
+import React from "react"
 
 const CoolButton = ({ href, children, ...props }) => {
   return (
