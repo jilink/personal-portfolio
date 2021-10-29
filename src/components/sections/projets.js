@@ -1,5 +1,5 @@
 import Img from "gatsby-image"
-import { Box, Flex, LinkOverlay, Text } from "@chakra-ui/layout"
+import { Box, Flex, Link, LinkOverlay, Text } from "@chakra-ui/layout"
 import { graphql, useStaticQuery } from "gatsby"
 import React, { useState } from "react"
 import Section from "./Section"
@@ -7,6 +7,13 @@ import Section from "./Section"
 const Projets = () => {
   const data = useStaticQuery(graphql`
     query {
+      Comeback: file(relativePath: { eq: "comeback-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
       Coiffeur: file(relativePath: { eq: "coiffeur-vitrine-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -85,6 +92,14 @@ const Projets = () => {
       description: "Un 'Cookie Clicker like' développé avec Reactjs et Webpack",
     },
     {
+      title: "Comeback",
+      url: "https://come-back.netlify.app/",
+      image: data?.Comeback,
+      description:
+        "Développement de l'API pour cette application web qui permet de se tenir au courrant des dernières sorties de ses artistes préférés, avec Express, Sequelize, Nodejs et PostgreSQL",
+        collab: {text: "Front par Pierrick Taïly", url: "https://pierricktaily.netlify.app/"}
+    },
+    {
       title: "Koh Lanta Simulator",
       url: "http://koh-lanta-simulator.ga/#/",
       image: data?.kohLanta,
@@ -147,6 +162,19 @@ const Projet = ({ project }) => {
           </Text>
         </LinkOverlay>
       </Box>
+      {project.collab && (
+        <Link
+          fontSize="small"
+          position="absolute"
+          bottom="0%"
+          color="white"
+          p="2"
+          target="_blank"
+          href={project.collab.url}
+        >
+          {project.collab.text}
+        </Link>
+      )}
     </Box>
   )
 }
