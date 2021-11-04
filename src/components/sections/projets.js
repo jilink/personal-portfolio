@@ -101,7 +101,7 @@ const Projets = () => {
     },
     {
       title: "Koh Lanta Simulator",
-      url: "http://koh-lanta-simulator.ga/#/",
+      url: "https://koh-lanta-simulator.netlify.app/",
       image: data?.kohLanta,
       description:
         "Un de mes premiers projets Reactjs qui a mal vielli mais que j'aime quand même !",
