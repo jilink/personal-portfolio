@@ -12,7 +12,7 @@ import {
   Link,
   Spacer,
   useToast,
-  Center,
+  Text,
 } from "@chakra-ui/react"
 import Section from "./Section"
 import { CoolButtonSubmit } from "../CoolButton"
@@ -139,7 +139,7 @@ const Contact = () => {
             Envoyer
           </CoolButtonSubmit>
         </form>
-        <Center fontSize="lg">
+        <Text fontSize="lg" textAlign="center">
           Ou réservez directement un&nbsp;
           <Link
             fontWeight="extrabold"
@@ -148,7 +148,7 @@ const Contact = () => {
           >
             rendez-vous téléphonique
           </Link>
-        </Center>
+        </Text>
       </Flex>
       <Spacer />
     </Section>
