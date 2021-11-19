@@ -71,8 +71,9 @@ const Contact = () => {
         justifyContent="center"
         textAlign="center"
         my="3"
-        bg="greenblue"
+        bg="black"
         color="white"
+        shadow="md"
       >
         <AlertIcon boxSize="40px" mr={0} color="primary" />
         <AlertTitle mt={4} mb={1} fontSize="lg">

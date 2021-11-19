@@ -52,24 +52,18 @@ const Competences = () => {
   `)
 
   return (
-    <Section id="competences" title="Compétences" justify="space-between">
+    <Section id="competences" title="Compétences" justify="space-between" bg="greenblue">
       <SkillCategory
         title="Front-End"
         skills={data?.Front.edges}
-        bg="white"
-        color="black"
       />
       <SkillCategory
         title="Back-End"
         skills={data?.Back.edges}
-        bg="black"
-        color="white"
       />
       <SkillCategory
         title="Autres outils"
         skills={data?.Others.edges}
-        bg="primary"
-        color="white"
       />
     </Section>
   )
@@ -77,7 +71,7 @@ const Competences = () => {
 
 const SkillCategory = ({ title, skills = [], ...props }) => {
   return (
-    <Box m="3" bg="white" shadow="2xl" {...props}>
+    <Box color="black" bg="white" m="3" shadow="dark-lg" {...props}>
       <Heading bg="inherit" m="0" as="h3" size="lg" textAlign="center">
         {title}
       </Heading>
