@@ -7,6 +7,13 @@ import Section from "./Section"
 const Projets = () => {
   const data = useStaticQuery(graphql`
     query {
+      KnowIt: file(relativePath: { eq: "know-it-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
       Comeback: file(relativePath: { eq: "comeback-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -64,6 +71,12 @@ const Projets = () => {
   `)
 
   const projects = [
+    {
+      title: "Know It!",
+      image: data?.KnowIt,
+      url:"https://www.know-it.bluepopcorn.fun",
+      description: "Progressive Web App avec Nextjs, Graphql, Neo4j pour s'entrainer en anglais avec des mini jeux.",
+    },
     {
       title: "Portfolio",
       url: "/",
