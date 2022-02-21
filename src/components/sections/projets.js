@@ -97,7 +97,7 @@ const Projets = () => {
       image: data?.Comeback,
       description:
         "Développement de l'API pour cette application web qui permet de se tenir au courrant des dernières sorties de ses artistes préférés, avec Express, Sequelize, Nodejs et PostgreSQL",
-        collab: {text: "Front par Pierrick Taïly", url: "https://pierricktaily.netlify.app/"}
+        collab: {text: "Front par Zokiasu", url: "https://zokiasu.netlify.app"}
     },
     {
       title: "Koh Lanta Simulator",
