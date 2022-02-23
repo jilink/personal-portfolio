@@ -106,6 +106,7 @@ const Skill = ({ skill, index }) => {
         {displayText && (
           <Center
             position="absolute"
+            color="black"
             zIndex={2}
             bg="white"
             textTransform="capitalize"
