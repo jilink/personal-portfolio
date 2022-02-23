@@ -96,11 +96,12 @@ const Skill = ({ skill, index }) => {
       <Flex
         alignItems="center"
         direction="column"
-        width={{ base: "25%", md: "20%" }}
+        width={{ base: "40%", md: "24%" }}
         onMouseEnter={() => setDisplayText(true)}
         onMouseLeave={() => setDisplayText(false)}
         bg="white"
         borderRadius="lg"
+        p="1"
       >
         {displayText && (
           <Center
