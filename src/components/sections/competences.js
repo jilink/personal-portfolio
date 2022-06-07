@@ -67,7 +67,7 @@ const SkillCategory = ({ title, skills = [], ...props }) => {
       <Heading bg="inherit" m="0" as="h3" size="lg" textAlign="center">
         {title}
       </Heading>
-      <Flex p="5" wrap="wrap" justify="center">
+      <Flex p="5" wrap="wrap" justify="center" textAlign="-webkit-center">
         {skills.map((skill, index) => (
           <Skill index={index} key={skill.node.id} skill={skill.node} />
         ))}

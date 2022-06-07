@@ -129,7 +129,7 @@ const Projets = () => {
   ]
   return (
     <Section id="projets" title="Projets">
-      <Flex align="center" justify="flex-start" wrap="wrap" alignSelf="center">
+      <Flex justify="center" align="center" wrap="wrap" alignSelf="center">
         {projects.map((project, index) => (
           <Projet key={index} project={project} />
         ))}
