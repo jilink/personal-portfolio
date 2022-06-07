@@ -20,11 +20,26 @@ const Newsletter = ({showMore=false}) => {
   const [success, setSuccess] = React.useState("")
   const handleSubscribe = async (e) => {
     e.preventDefault()
+    try {
+      await Axios.post("https://api.sendinblue.com/v3/contacts", {
+        email: email,
+        listIds: [3]
+      }, {
+        headers: {
+          "api-key": process.env.GATSBY_SENDINBLUE_API_KEY,
+          "Content-Type": "application/json"
+        }
+      })
+      setSuccess("Merci pour votre inscription !")
+      setEmail("")
+    } catch (error) {
+      setError("Il y a eu un soucis lors de l'inscription")
+    }
   }
   return (
     <Flex direction="column">
       <form onSubmit={handleSubscribe}>
-      <CoolInput type="email" onChange={(e) => {setEmail(e.target.value)}} placeholder="example@mail.fr"/>
+      <CoolInput type="email" value={email} onChange={(e) => {setEmail(e.target.value)}} placeholder="example@mail.fr"/>
       <CoolButtonSubmit disabled={!email} bg="greenblue"
         onClick={() => {
           console.log("add")
