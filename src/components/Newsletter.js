@@ -26,9 +26,9 @@ const NewsletterSection = () => {
           ?) :
         </Text>
         <UnorderedList>
-          <ListItem fontWeight="extrabold"> Des Astuces générales pour les <Box as="span" textDecoration="underline">freelances</Box> <span role="img" aria-label="emoji">😎</span></ListItem>
+          <ListItem fontWeight="extrabold"> Des Astuces générales pour les <Box as="span" textDecoration="underline">freelance</Box> <span role="img" aria-label="emoji">😎</span></ListItem>
           <ListItem fontWeight="extrabold"> Des Conseils plus ciblés pour les développeurs (surtout si vous utilisez <Box as="span" color="#00d5f7" textDecoration="underline">Reactjs</Box> <span role="img" aria-label="emoji">👀</span>)</ListItem>
-          <ListItem fontWeight="extrabold"> Des Updates sur mes projets perso s'il y en a en cours car il faut bien faire sa propre pub aussi de temps en temps, et qui sait, ça pourrait vous intéresser</ListItem>
+          <ListItem fontWeight="extrabold"> Des Updates sur mes projets perso du moment car il faut bien faire sa propre pub aussi de temps en temps et, qui sait, ça pourrait vous intéresser</ListItem>
           </UnorderedList>
       </Box>
     </Section>
