@@ -145,8 +145,8 @@ const Projet = ({ project }) => {
     <Box
       onMouseEnter={() => setShowDescription(0.9)}
       onMouseLeave={() => setShowDescription(0)}
-      w="20em"
-      h="17em"
+      w={{base:"8em", md: "20em"}}
+      h={{base:"7.5em", md: "17em"}}
       overflow="hidden"
       position="relative"
       m="4"
