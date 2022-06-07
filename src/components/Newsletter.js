@@ -9,10 +9,10 @@ import { Link as ReachLink } from "gatsby"
 const NewsletterSection = () => {
   return (
     <Section m="5">
-      <Flex alignSelf="center" w="50%" direction="column">
+      <Flex alignSelf="center" w={{base: "100%", md:"50%"}} direction="column">
         <Newsletter />
       </Flex>
-      <Box p={3} bgColor="rgba(0,0,0,0.5)" mt="2" color="white" fontWeight="bold">
+      <Box p={3} bgColor="rgba(0,0,0,0.5)" mt="2" color="white" fontWeight="bold" maxW="1000px" alignSelf="center">
         <Text>
           Hey ! Je vous remercie de votre intérêt pour la Newsletter
         </Text>
