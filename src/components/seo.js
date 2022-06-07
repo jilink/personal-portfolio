@@ -53,6 +53,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: `/static/c3325b6d38eada4e6c45395261387db5/34ca5/mylogo.png`,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
