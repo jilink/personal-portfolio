@@ -83,7 +83,7 @@ const Newsletter = ({showMore=false, ...props}) => {
           Je partage chaque semaine des conseils et astuces
         </Text>
         <Text mb="1" textAlign="center" fontWeight="extrabold">
-          pour les développeur freelance
+          pour les développeurs freelance
         </Text>
         <FormControl id="name" mr="3" isRequired>
           <FormLabel>Entrez votre adresse mail</FormLabel>

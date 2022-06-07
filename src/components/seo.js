@@ -54,7 +54,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `/static/c3325b6d38eada4e6c45395261387db5/34ca5/mylogo.png`,
+          content: `/static/c3325b6d38eada4e6c45395261387db5/497c6/mylogo.png`,
         },
         {
           name: `twitter:card`,
