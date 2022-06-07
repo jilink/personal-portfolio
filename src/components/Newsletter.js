@@ -1,18 +1,22 @@
 import React from 'react'
 import Section from './sections/Section';
 import Axios from "axios"
-import { Link, useToast, Text, Flex} from '@chakra-ui/react';
+import { Link, useToast, Text, Flex, FormLabel, FormControl} from '@chakra-ui/react';
 import { CoolInput } from './sections/contact';
 import {CoolButtonSubmit} from './CoolButton';
 import { Link as ReachLink } from "gatsby"
 
 const NewsletterSection = () => {
   return (
-    <Section><Newsletter/></Section>
+    <Section>
+      <Flex alignSelf="center" w="50%" direction="column">
+        <Newsletter />
+      </Flex>
+    </Section>
   )
 }
 
-const Newsletter = ({showMore=false}) => {
+const Newsletter = ({showMore=false, ...props}) => {
   const [email, setEmail] = React.useState("")
   const toast = useToast()
   const toastSuccess = () => {
@@ -53,30 +57,44 @@ const Newsletter = ({showMore=false}) => {
     }
   }
   return (
-    <Flex direction="column">
-      <form onSubmit={handleSubscribe}>
-      <CoolInput type="email" value={email} onChange={(e) => {setEmail(e.target.value)}} placeholder="example@mail.fr"/>
-      <CoolButtonSubmit disabled={!email} bg="greenblue"
-        onClick={() => {
-          console.log("add")
-        }}
-      >
-        Recevoir la newsletter
-      </CoolButtonSubmit>
+    <Flex direction="column" {...props}>
+      <form style={{ marginBottom: "0" }} onSubmit={handleSubscribe}>
+        <FormControl id="name" mr="3" isRequired>
+          <FormLabel fontWeight="extrabold">
+            Intéressé par la Newsletter ?
+          </FormLabel>
+          <CoolInput
+            type="email"
+            value={email}
+            onChange={e => {
+              setEmail(e.target.value)
+            }}
+            placeholder="example@mail.fr"
+          />
+        </FormControl>
+        <CoolButtonSubmit
+          mx="0"
+          w="100%"
+          bg="secondary"
+          color="white"
+          mb="0"
+          border="solid"
+        >
+          Recevoir la newsletter
+        </CoolButtonSubmit>
       </form>
       {showMore && (
         <Link
           as={ReachLink}
           to={`/newsletter`}
           style={{ boxShadow: "none" }}
-          _hover={{ textDecoration: "none", color: "secondary" }}
+          alignSelf="center"
         >
-          <Text display="block">
-            En savoir plus
-          </Text>
+          <Text fontSize="sm">En savoir plus</Text>
         </Link>
       )}
     </Flex>
   )
 }
 export default NewsletterSection
+export { Newsletter }
