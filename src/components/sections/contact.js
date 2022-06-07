@@ -73,11 +73,11 @@ const Contact = () => {
         justifyContent="center"
         textAlign="center"
         my="3"
-        bg="black"
+        bgColor="rgba(0, 0, 0, 0.5)"
         color="white"
         shadow="md"
       >
-        <AlertIcon boxSize="40px" mr={0} color="primary" />
+        <AlertIcon boxSize="40px" mr={0} color="white" />
         <AlertTitle mt={4} mb={1} fontSize="lg">
           Besoin d'aide pour construire un site vitrine, une application web ou
           une API ?

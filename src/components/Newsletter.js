@@ -1,20 +1,40 @@
 import React from 'react'
 import Section from './sections/Section';
 import Axios from "axios"
-import { Link, useToast, Text, Flex, FormLabel, FormControl} from '@chakra-ui/react';
+import { Link, useToast, Text, Flex, FormLabel, FormControl, Box, UnorderedList, ListItem} from '@chakra-ui/react';
 import { CoolInput } from './sections/contact';
 import {CoolButtonSubmit} from './CoolButton';
 import { Link as ReachLink } from "gatsby"
 
 const NewsletterSection = () => {
   return (
-    <Section>
+    <Section m="5">
       <Flex alignSelf="center" w="50%" direction="column">
         <Newsletter />
       </Flex>
+      <Box p={3} bgColor="rgba(0,0,0,0.5)" mt="2" color="white" fontWeight="bold">
+        <Text>
+          Hey ! Je vous remercie de votre intérêt pour la Newsletter
+        </Text>
+        <Text mb="1">
+          En vous abonnant vous allez recevoir chaque semaine un petit mail
+          condensé des choses que j'ai envie de vous partager en ce moment !
+        </Text>
+        <Text>
+          La plupart du temps le mail sera divisé en trois parties (mais pas
+          toujours c'est ma Newsletter je fais ce que je veux, qui va m'arrêter
+          ?) :
+        </Text>
+        <UnorderedList>
+          <ListItem fontWeight="extrabold"> Des Astuces générales pour les <Box as="span" textDecoration="underline">freelances</Box> <span role="img" aria-label="emoji">😎</span></ListItem>
+          <ListItem fontWeight="extrabold"> Des Conseils plus ciblés pour les développeurs (surtout si vous utilisez <Box as="span" color="#00d5f7" textDecoration="underline">Reactjs</Box> <span role="img" aria-label="emoji">👀</span>)</ListItem>
+          <ListItem fontWeight="extrabold"> Des Updates sur mes projets perso s'il y en a en cours car il faut bien faire sa propre pub aussi de temps en temps, et qui sait, ça pourrait vous intéresser</ListItem>
+          </UnorderedList>
+      </Box>
     </Section>
   )
 }
+
 
 const Newsletter = ({showMore=false, ...props}) => {
   const [email, setEmail] = React.useState("")
@@ -57,12 +77,16 @@ const Newsletter = ({showMore=false, ...props}) => {
     }
   }
   return (
-    <Flex direction="column" {...props}>
+    <Flex  p="3" bg="white" color="black" direction="column" {...props}>
       <form style={{ marginBottom: "0" }} onSubmit={handleSubscribe}>
+        <Text textAlign="center" fontWeight="extrabold">
+          Je partage chaque semaine des conseils et astuces
+        </Text>
+        <Text mb="1" textAlign="center" fontWeight="extrabold">
+          pour être développeur freelance
+        </Text>
         <FormControl id="name" mr="3" isRequired>
-          <FormLabel fontWeight="extrabold">
-            Intéressé par la Newsletter ?
-          </FormLabel>
+          <FormLabel>Entrez votre adresse mail</FormLabel>
           <CoolInput
             type="email"
             value={email}
@@ -70,6 +94,7 @@ const Newsletter = ({showMore=false, ...props}) => {
               setEmail(e.target.value)
             }}
             placeholder="example@mail.fr"
+            style={{border: "1px solid #E76F51"}}
           />
         </FormControl>
         <CoolButtonSubmit
@@ -80,7 +105,7 @@ const Newsletter = ({showMore=false, ...props}) => {
           mb="0"
           border="solid"
         >
-          Recevoir la newsletter
+          Recevoir la Newsletter
         </CoolButtonSubmit>
       </form>
       {showMore && (

@@ -25,7 +25,7 @@ const Home = () => {
   const big = useBreakpointValue({ base: false, md: true })
   return (
     <Section id="home" color="white" align={{ base: "center", md: "unset" }}>
-      <Flex>
+      <Flex direction={{base: "column", md: "row"}}>
         <Flex direction="column" flex="1" align="center">
           <Logo big={big} md={!big} />
           <Center textAlign="center" fontSize="smaller">
@@ -41,9 +41,11 @@ const Home = () => {
             </CoolButton>
           </Flex>
           <Spacer />
-          <Newsletter mt="2" showMore />
         </Flex>
         <Spacer />
+        <Flex justify="center" align="center">
+          <Newsletter showMore />
+        </Flex>
       </Flex>
     </Section>
   )
