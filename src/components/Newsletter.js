@@ -1,12 +1,10 @@
 import React from 'react'
 import Section from './sections/Section';
 import Axios from "axios"
-import { Box, Link} from '@chakra-ui/layout';
+import { Link, useToast, Text, Flex} from '@chakra-ui/react';
 import { CoolInput } from './sections/contact';
 import {CoolButtonSubmit} from './CoolButton';
 import { Link as ReachLink } from "gatsby"
-import { Text } from '@chakra-ui/layout';
-import { Flex } from '@chakra-ui/layout';
 
 const NewsletterSection = () => {
   return (
@@ -16,8 +14,26 @@ const NewsletterSection = () => {
 
 const Newsletter = ({showMore=false}) => {
   const [email, setEmail] = React.useState("")
-  const [error, setError] = React.useState("")
-  const [success, setSuccess] = React.useState("")
+  const toast = useToast()
+  const toastSuccess = () => {
+    toast({
+      title: "On est bon !",
+      description: "Tu receveras bientôt la prochaine newsletter !",
+      status: "success",
+      duration: 4000,
+      isClosable: true,
+    })
+  }
+  const toastFaillure = () => {
+    toast({
+      title: "Il y a eu un soucis ...",
+      description:
+        "Si le problème continue, n'hésite pas à m'en faire part",
+      status: "error",
+      duration: 4000,
+      isClosable: true,
+    })
+  }
   const handleSubscribe = async (e) => {
     e.preventDefault()
     try {
@@ -30,10 +46,10 @@ const Newsletter = ({showMore=false}) => {
           "Content-Type": "application/json"
         }
       })
-      setSuccess("Merci pour votre inscription !")
       setEmail("")
+      toastSuccess()
     } catch (error) {
-      setError("Il y a eu un soucis lors de l'inscription")
+      toastFaillure()
     }
   }
   return (
