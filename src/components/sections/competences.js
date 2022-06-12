@@ -92,6 +92,10 @@ const Skill = ({ skill, index }) => {
         duration: duration,
         repeatType: "reverse",
       }}
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 0.2 },
+      }}
     >
       <Flex
         alignItems="center"
