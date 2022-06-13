@@ -33,6 +33,7 @@ const LinkItem = ({ children, isLast, to = "/", ...rest }) => {
       to={to}
       style={{ boxShadow: "none" }}
       _hover={{ textDecoration: "none", color: "secondary" }}
+      {...rest}
     >
       <Text display="block" {...rest}>
         {children}
@@ -58,6 +59,7 @@ const MenuLinks = ({ isOpen }) => (
       <LinkItem to="/#projets">Projets</LinkItem>
       <LinkItem to="/#competences">Compétences</LinkItem>
       <LinkItem to="/#contact">Contacter</LinkItem>
+      <LinkItem target="_blank" to="https://www.blog.cozy-codeur.fr">Blog</LinkItem>
       <ThemeToggle />
     </Stack>
   </Box>
