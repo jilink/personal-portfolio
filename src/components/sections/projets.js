@@ -7,6 +7,20 @@ import Section from "./Section"
 const Projets = () => {
   const data = useStaticQuery(graphql`
     query {
+      Blog: file(relativePath: { eq: "blog-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      CozySurviving: file(relativePath: { eq: "cozy-surviving-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
       KnowIt: file(relativePath: { eq: "know-it-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -72,17 +86,22 @@ const Projets = () => {
 
   const projects = [
     {
+      title: "Cozy Surviving",
+      image: data.CozySurviving,
+      url: "https://cozy-surviving.cozy-codeur.fr",
+      description: "Jeu en ligne sur navigateur basé sur une émission dont j'ai oublié le nom 🤔 Reactjs / Socket.IO / Firebase",
+    },
+    {
       title: "Know It!",
       image: data?.KnowIt,
       url:"https://www.know-it.bluepopcorn.fun",
       description: "Progressive Web App avec Nextjs, Graphql, Neo4j pour s'entrainer en anglais avec des mini jeux.",
     },
     {
-      title: "Portfolio",
-      url: "/",
-      image: data?.Portfolio,
-      description:
-        "Vous êtes déjà dedans ;) Il a été développé avec Gatsby et Chakra UI",
+      title: "Blog",
+      image: data.Blog,
+      url: "https://www.blog.cozy-codeur.fr",
+      description: "Un blog dans lequel j'écris sur des sujets autour de la freelance et du code.",
     },
     {
       title: "Coiffeur Vitrine",
@@ -97,6 +116,13 @@ const Projets = () => {
       image: data?.garticClone,
       description:
         "Clone du jeu Gartic Phone (multijoueur en ligne) développé avec Reactjs, Nodejs et Socket.IO",
+    },
+    {
+      title: "Portfolio",
+      url: "/",
+      image: data?.Portfolio,
+      description:
+        "Vous êtes déjà dedans ;) Il a été développé avec Gatsby et Chakra UI",
     },
     {
       title: "Sushi Clicker",
