@@ -4,7 +4,7 @@ import NewsletterSection from "../components/Newsletter"
 
 const NewsletterPage = () => (
   <>
-    <SEO title="Newsletter" />
+    <SEO title="Newsletter pour les développeurs Freelance" />
     <NewsletterSection/>
   </>
 )
