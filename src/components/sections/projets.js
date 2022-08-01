@@ -74,6 +74,14 @@ const Projets = () => {
         }
       }
 
+      quelleAide: file(relativePath: { eq: "quelle-aide-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+
       Github: file(relativePath: { eq: "github-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -90,6 +98,13 @@ const Projets = () => {
       image: data.CozySurviving,
       url: "https://cozy-surviving.cozy-codeur.fr",
       description: "Jeu en ligne sur navigateur basé sur une émission dont j'ai oublié le nom 🤔 Reactjs / Socket.IO / Firebase",
+    },
+    {
+      title: "Quelle Aide",
+      image: data.quelleAide,
+      url: "https://quelle-aide.netlify.app",
+      description: "Projet Open Source pour simplifier l'accès aux aides en France",
+        collab: {text: "Participer au projet", url: "https://github.com/jilink/quelle-aide#readme"}
     },
     {
       title: "Know It!",
