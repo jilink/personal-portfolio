@@ -49,7 +49,7 @@ const NewsletterSection = () => {
           <Box as="span" fontWeight="bold">
             5 découvertes
           </Box>{" "}
-          que j'ai faites pendant la semaine. Les découvertes vont ce concentrer
+          que j'ai faites pendant la semaine. Les découvertes vont se concentrer
           autour des sujets suivants :
         </Text>
         <UnorderedList>
@@ -84,7 +84,7 @@ const NewsletterSection = () => {
           <ListItem fontWeight="extrabold">
             De temps en temps des petits outils sympa du genre{" "}
             <Box as="span" textDecoration="underline">
-              extensions chrome
+              Extensions Chrome
             </Box>
           </ListItem>
           <ListItem fontWeight="extrabold">
