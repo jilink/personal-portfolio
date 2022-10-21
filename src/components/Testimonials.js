@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Text, Flex, Link } from "@chakra-ui/react"
+import { Text, Flex, Link, Grid, GridItem } from "@chakra-ui/react"
 import { MotionFlex } from "./MotionBox"
+import { Button } from '@chakra-ui/button';
 
 const Testimonials = ({ ...props }) => {
   const [currentPosition, setCurrentPosition] = useState(0)
@@ -39,7 +40,7 @@ const Testimonials = ({ ...props }) => {
         setCurrentPositionBg(currentPositionBg => {
           return (currentPositionBg + 1) % bgs.length
         })
-      }, 7000)
+      }, 6000)
       return () => clearInterval(interval)
     }, [testimonials, bgs])
 
@@ -54,12 +55,12 @@ const Testimonials = ({ ...props }) => {
         w="100%"
         textAlign="center"
         justify="space-between"
-        initial={{ x: 0, y:0, opacity: 0, rotate: 0 }}
+        initial={{ x: 0, y: 0, opacity: 0, rotate: 0 }}
         animate={{
           opacity: 1,
           rotate: [0, -6, 130, 10],
-          x: [0, -70, 3000, 5000 ],
-          y:[0, -45, 10, -5]
+          x: [0, -70, 3000, 5000],
+          y: [0, -45, 10, -5],
           // scale: [1, 1, 1.1, 1],
         }}
         transition={{
@@ -90,6 +91,11 @@ const Testimonials = ({ ...props }) => {
           </Text>
         </Flex>
       </MotionFlex>
+      <ChooseTestimonial
+        currentPosition={currentPosition}
+        setCurrentPosition={setCurrentPosition}
+        testimonialsNumber={testimonials.length}
+      />
 
       <Link
         align="center"
@@ -105,6 +111,28 @@ const Testimonials = ({ ...props }) => {
   )
 }
 
+const ChooseTestimonial = ({ setCurrentPosition, testimonialsNumber, currentPosition }) => {
+
+  return (
+    <Grid templateColumns={`repeat(${testimonialsNumber}, 1fr)`} gap={1}>
+      {[...Array(testimonialsNumber)].map((e, i) => (
+        <GridItem key={i} w="100%">
+        <Button
+        w="100%"
+        h="15px"
+        transition="ease"
+          onClick={() => {
+            setCurrentPosition(i)
+          }}
+          bg="black"
+          opacity={currentPosition === i ? "1" : "0.5"}
+          _hover={{bg: "black"}}
+        />
+        </GridItem>
+      ))}
+    </Grid>
+  )
+}
 
 
 export default Testimonials
