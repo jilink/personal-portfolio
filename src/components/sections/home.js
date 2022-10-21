@@ -6,7 +6,7 @@ import { useStaticQuery } from "gatsby"
 import Section from "./Section"
 import { useBreakpointValue } from "@chakra-ui/media-query"
 import CoolButton from "../CoolButton"
-import {Newsletter} from '../Newsletter';
+import Testimonials from '../Testimonials';
 
 const Home = () => {
   const { site } = useStaticQuery(
@@ -42,8 +42,9 @@ const Home = () => {
           </Flex>
           <Spacer />
         </Flex>
-        <Flex justify="center" align="center">
-          <Newsletter showMore />
+        <Flex justify="center" align="center" w={{base: "100%", md: "70%", lg: "65%", xl:"40%"}}>
+          {/* <Newsletter showMore /> */}
+          <Testimonials/>
         </Flex>
       </Flex>
     </Section>
