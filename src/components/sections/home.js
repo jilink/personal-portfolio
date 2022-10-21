@@ -42,8 +42,7 @@ const Home = () => {
           </Flex>
           <Spacer />
         </Flex>
-        <Flex justify="center" align="center" w={{base: "100%", md: "70%", lg: "65%", xl:"40%"}}>
-          {/* <Newsletter showMore /> */}
+        <Flex mt="5" justify="center" align="center" w={{base: "100%", md: "70%", lg: "65%", xl:"40%"}}>
           <Testimonials/>
         </Flex>
       </Flex>

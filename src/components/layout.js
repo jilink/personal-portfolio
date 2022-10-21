@@ -90,6 +90,7 @@ const Layout = ({ children }) => {
             padding: `inherit 2.0875rem 1.45rem`,
           }}
           pt={{ base: "15vh", md: "20vh", lg: "10vh" }}
+          overflowY="hidden"
         >
           <main>
             <Flex

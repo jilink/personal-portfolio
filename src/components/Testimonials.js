@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Text, Flex } from "@chakra-ui/react"
+import { Text, Flex, Link } from "@chakra-ui/react"
 import { MotionFlex } from "./MotionBox"
 
 const Testimonials = ({ ...props }) => {
@@ -7,25 +7,25 @@ const Testimonials = ({ ...props }) => {
   const [currentPositionBg, setCurrentPositionBg] = useState(0)
   const testimonials = [
     {
-      catchPhrase: "Quel bg ce mec",
+      catchPhrase: "Toujours à l'écoute et TRES pro!",
       testimonial:
-        "Nous avons travaillé ensemble en remote pendant 3 mois, un jour je le rencontre enfin IRL et je me dis mais quel bg ce mec",
-      author: "Mark",
-      occupation: "CEO de Mcdonald's",
+        "Nous sommes toujours très satisfaites du travail que Jimmy fait pour notre PWA Know It! [...] Il est toujours à l'écoute et TRES pro! [...] et en plus, il parle anglais. 5 étoiles pour Jimmy !!!!",
+      author: "Sandra",
+      occupation: "Co-fondatrice de BluePopcorn Production",
     },
     {
-      catchPhrase: "Le nouveau Bill Gates",
+      catchPhrase: "Nous avons très bien été accompagné",
       testimonial:
-        "Après avoir travaillé ensemble en remote pendant 3 mois, un jour je le rencontre enfin IRL et je me dis mais c'est le nouveau Bill Gates",
-      author: "Bill",
-      occupation: "PDG de Microsoft",
+        "Jimmy nous a accompagné dans le développement d'une plateforme de Cashback. [...] Nous avons très bien été accompagné tous le long de la collaboration. Nous le recommandons vivement.",
+      author: "Jordan",
+      occupation: "CEO à Aileen",
     },
     {
-      catchPhrase: "Au delà du réel",
+      catchPhrase: "He is reliable, professional and very pleasant to work with",
       testimonial:
-        "La prestation a été au delà du réel, en plus de notre site, Cozy Codeur a fabriqué une voiture autonome qu'il nous a offerte",
-      author: "Carole",
-      occupation: "CEO de Figma",
+        "Jimmy is a very diligent coder with great insight and ideas. [..] We will definitely call on him for further development as he is reliable, professional and very pleasant to work with.",
+      author: "Kathrina",
+      occupation: "Co-fondatrice de BluePopcorn Production",
     },
   ]
 
@@ -39,48 +39,72 @@ const Testimonials = ({ ...props }) => {
         setCurrentPositionBg(currentPositionBg => {
           return (currentPositionBg + 1) % bgs.length
         })
-      }, 6000)
+      }, 7000)
       return () => clearInterval(interval)
-    }, [testimonials])
+    }, [testimonials, bgs])
 
   return (
-    <MotionFlex
-      key={currentPosition}
-      bg="white"
-      color="black"
-      direction="column"
-      border="1px solid"
-      w="100%"
-      textAlign="center"
-      justify="space-between"
-      initial={{ opacity: 0, rotate: 0}}
-      animate={{ opacity: 1, rotate: 360 }}
-      transition={{
-        opacity: { ease: "linear" },
-        layout: { duration: 0.3 },
-      }}
-      exit={{ opacity: 0 }}
-      {...props}
-    >
-      <Text m="3" fontSize="3xl" fontWeight="bold">
-        “{testimonials[currentPosition].catchPhrase}”
-      </Text>
-      <Text m="8" fontSize="md">
-        “{testimonials[currentPosition].testimonial}”
-      </Text>
-      <Flex
-        bg={bgs[currentPositionBg]}
-        textAlign="center"
-        justify="center"
-        p="3"
+    <Flex direction="column">
+      <MotionFlex
+        key={currentPosition}
+        bg="white"
+        color="black"
         direction="column"
+        border="1px solid"
+        w="100%"
+        textAlign="center"
+        justify="space-between"
+        initial={{ x: 0, y:0, opacity: 0, rotate: 0 }}
+        animate={{
+          opacity: 1,
+          rotate: [0, -6, 130, 10],
+          x: [0, -70, 3000, 5000 ],
+          y:[0, -45, 10, -5]
+          // scale: [1, 1, 1.1, 1],
+        }}
+        transition={{
+          opacity: { ease: "linear" },
+          delay: 5,
+          duration: 2,
+        }}
+        exit={{ opacity: 0 }}
+        {...props}
       >
-        <Text>{testimonials[currentPosition].author}</Text>
-        <Text fontWeight="black">
-          {testimonials[currentPosition].occupation}
+        <Text m="5" fontSize="3xl" fontWeight="bold">
+          “{testimonials[currentPosition].catchPhrase}”
         </Text>
-      </Flex>
-    </MotionFlex>
+        <Text m="6" fontSize="md">
+          “{testimonials[currentPosition].testimonial}”
+        </Text>
+        <Flex
+          bg={bgs[currentPositionBg]}
+          textAlign="center"
+          justify="center"
+          p="3"
+          direction="column"
+          fontSize="lg"
+        >
+          <Text>{testimonials[currentPosition].author}</Text>
+          <Text fontWeight="black">
+            {testimonials[currentPosition].occupation}
+          </Text>
+        </Flex>
+      </MotionFlex>
+
+      <Link
+        align="center"
+        fontSize="2xl"
+        textDecoration="underline"
+        href="https://www.malt.fr/profile/jimmysoussan"
+        opacity="0.8"
+        bg="black"
+      >
+        Lire tous les avis complets
+      </Link>
+    </Flex>
   )
 }
+
+
+
 export default Testimonials
