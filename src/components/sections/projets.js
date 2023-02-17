@@ -82,6 +82,14 @@ const Projets = () => {
         }
       }
 
+      quiz: file(relativePath: { eq: "everyday-quiz-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+
       Github: file(relativePath: { eq: "github-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -93,6 +101,12 @@ const Projets = () => {
   `)
 
   const projects = [
+    {
+      title: "Everyday Quiz",
+      image: data.quiz,
+      url: "https://www.tiktok.com/@youreverydayquiz",
+      description: "Compte TikTok semi-automatique, chaque jour je génère des vidéos via remotion, github actions et l'API Trivia quiz sans effort !",
+    },
     {
       title: "Cozy Surviving",
       image: data.CozySurviving,

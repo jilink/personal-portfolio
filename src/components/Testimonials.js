@@ -28,6 +28,20 @@ const Testimonials = ({ ...props }) => {
       author: "Kathrina",
       occupation: "Co-fondatrice de BluePopcorn Production",
     },
+    {
+      catchPhrase: "Sérieux et rigoureux.",
+      testimonial:
+        "Toujours un plaisir de travailler avec Jimmy. Sérieux et rigoureux.",
+      author: "Maxime",
+      occupation: "De Whatsonweb",
+    },
+    {
+      catchPhrase: "Merci à Jimmy pour son professionnalisme",
+      testimonial:
+        "Merci à Jimmy pour son professionnalisme, sa réactivité et sa capacité d'adaptation.",
+      author: "Trinh",
+      occupation: "De Gaming Campus",
+    },
   ]
 
   const bgs = ["#EF5A24", "greenblue"]
