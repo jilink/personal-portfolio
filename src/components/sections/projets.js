@@ -82,7 +82,15 @@ const Projets = () => {
         }
       }
 
-      quiz: file(relativePath: { eq: "everyday-quiz-minimalist.png" }) {
+      pokemon: file(relativePath: { eq: "pokemon-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+
+      totk: file(relativePath: { eq: "totk-fuse-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
             ...GatsbyImageSharpFixed
@@ -102,10 +110,16 @@ const Projets = () => {
 
   const projects = [
     {
-      title: "Everyday Quiz",
-      image: data.quiz,
-      url: "https://www.tiktok.com/@youreverydayquiz",
-      description: "Compte TikTok semi-automatique, chaque jour je génère des vidéos via remotion, github actions et l'API Trivia quiz sans effort !",
+      title: "Zelda Totk Weapons Fuses",
+      image: data.totk,
+      url: "https://zelda-totk-weapons-fuses.netlify.app/",
+      description: "Web app qui permet de calculer rapidement les dégâts des différentes combinaisons d'armes dans Zelda Totk",
+    },
+    {
+      title: "Who's That Pokemon?",
+      image: data.pokemon,
+      url: "https://www.youtube.com/@EverydayQuiz-be9sz/shorts",
+      description: "Chaine youtube totalement automatisée qui poste chaque jour une vidéo 'Who's That Pokemon' aléatoire",
     },
     {
       title: "Cozy Surviving",
