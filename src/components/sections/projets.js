@@ -98,6 +98,14 @@ const Projets = () => {
         }
       }
 
+      qr: file(relativePath: { eq: "creer-qr-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+
       Github: file(relativePath: { eq: "github-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -114,6 +122,12 @@ const Projets = () => {
       image: data.totk,
       url: "https://zelda-totk-weapons-fuses.netlify.app/",
       description: "Web app qui permet de calculer rapidement les dégâts des différentes combinaisons d'armes dans Zelda Totk",
+    },
+    {
+      title: "Créer Qr Code",
+      image: data.qr,
+      url: "https://creer-qr-code.fr/",
+      description: "Créer Qr Code est un générateur de QR Code gratuit pour vos liens et fichiers",
     },
     {
       title: "Who's That Pokemon?",
