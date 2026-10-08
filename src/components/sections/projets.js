@@ -106,6 +106,14 @@ const Projets = () => {
         }
       }
 
+      IdleWalk: file(relativePath: { eq: "idle-walk-minimalist.png" }) {
+        childImageSharp {
+          fixed(width: 700, height: 400, cropFocus: WEST) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+
       Github: file(relativePath: { eq: "github-minimalist.png" }) {
         childImageSharp {
           fixed(width: 700, height: 400, cropFocus: WEST) {
@@ -117,6 +125,12 @@ const Projets = () => {
   `)
 
   const projects = [
+    {
+      title: "Idle Walk",
+      image: data.IdleWalk,
+      url: "https://play.google.com/store/apps/details?id=com.cozycodeur.idlewalk&hl=fr",
+      description: "Jeu idle mobile (Android) qui transforme vos vrais pas en pièces, même appli fermée : zones à débloquer, œufs à faire éclore en compagnons et défis quotidiens",
+    },
     {
       title: "Zelda Totk Weapons Fuses",
       image: data.totk,
